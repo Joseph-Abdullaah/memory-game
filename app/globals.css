@@ -7,6 +7,12 @@
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
+    --font-display: var(--font-display);
+    --color-game-ink: #0a0a0a;
+    --color-game-cream: #f4f2ed;
+    --color-game-yellow: #f2e62e;
+    --color-game-purple: #b47ff5;
+    --color-game-lilac: #d9c4f2;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -126,4 +132,45 @@
   html {
     @apply font-sans;
     }
+}
+
+@keyframes game-screen-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes game-pop-in {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes game-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes game-confetti-fall {
+  0% { transform: translateY(-40px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(720px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes game-match-pulse {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.08); }
+  75% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes game-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card-inner {
+    transition: none !important;
+  }
 }
